@@ -3,17 +3,14 @@ var player1 = 1;
 var player2 = 2;
 var presentPlayer = player1;
 var arr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-function canvas(a, b) {
+function canvas(a, b, element) {
     var id = "box(" + a + "," + b + ")";
-    if (document.getElementById(id).classList.contains("crossimage")) return;
-    if (document.getElementById(id).classList.contains("circleimage")) return;
-
+    if ($(element).hasClass("crossimage")) return;
+    if ($(element).hasClass("circleimage")) return;
     arr[a][b] = presentPlayer;
 
     if (presentPlayer === player1) {
-
-
-        document.getElementById(id).classList.add("crossimage");
+        $(element).addClass("crossimage");
         if (haswon()) {
             alert("Player 1 won!");
             window.location.reload();
@@ -22,7 +19,7 @@ function canvas(a, b) {
     }
     else if (presentPlayer === player2) {
 
-        document.getElementById(id).classList.add("circleimage");
+        $(element).addClass("circleimage");
         if (haswon()) {
             alert("Player 2 won!");
             window.location.reload();
@@ -34,10 +31,6 @@ function canvas(a, b) {
         alert("Game Draw");
         window.location.reload();
     }
-    //if (haswon())
-    //{
-    //    alert("Player" + presentPlayer + " won!");
-    //}
 }
 function haswon() {
     if (arr[0][0] === arr[1][0] && arr[1][0] === arr[2][0] && arr[0][0] !== 0) {return true;}
