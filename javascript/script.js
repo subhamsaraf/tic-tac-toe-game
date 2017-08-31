@@ -13,7 +13,8 @@ function canvas(a, b, element) {
         $(element).addClass("crossimage");
         if (haswon()) {
             alert("Player 1 won!");
-            window.location.reload();
+            location.reload();
+            return;
         }
         presentPlayer = player2;
     }
@@ -22,7 +23,8 @@ function canvas(a, b, element) {
         $(element).addClass("circleimage");
         if (haswon()) {
             alert("Player 2 won!");
-            window.location.reload();
+            location.reload();
+            return;
         }
         presentPlayer = player1;
 
