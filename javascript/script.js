@@ -3,8 +3,7 @@ var player1 = 1;
 var player2 = 2;
 var presentPlayer = player1;
 var arr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-function canvas(a, b, element) {
-    var id = "box(" + a + "," + b + ")";
+function PerformOperation(a, b, element) {
     if ($(element).hasClass("crossimage")) return;
     if ($(element).hasClass("circleimage")) return;
     arr[a][b] = presentPlayer;
@@ -61,3 +60,11 @@ function allBoxesFilled()
     }
     return result;
 }
+$(document).ready(function(){
+    $(".box").click(function(event){
+        var check = event.target.id;
+        var a = parseInt( check[4]);
+        var b =  parseInt( check[6]);
+        PerformOperation(a, b, event.target);
+    });
+});
